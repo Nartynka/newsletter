@@ -5,8 +5,6 @@ const https = require("https")
 
 const app = express();
 
-
-
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({
    extended: true
@@ -44,7 +42,6 @@ app.post("/", function(req, res) {
       auth: "nazwa:656120029f9d2dc178155e4051fbf660-us7",
    }
 
-
    const request = https.request(url, options, function(ress) {
 
       ress.on("data", function(data) {
@@ -62,19 +59,15 @@ app.post("/", function(req, res) {
    request.end();
 });
 
-
 app.post("/failure", function(req, res){
    res.redirect("/");
 });
-
-
-
 
 app.listen(process.env.PORT || 2137, function() {
    console.log("Serwer is running on port 2137");
 });
 
-
+//I know that keys shouldn't be in files but in .env or something
 //API Key
 //656120029f9d2dc178155e4051fbf660-us7
 
